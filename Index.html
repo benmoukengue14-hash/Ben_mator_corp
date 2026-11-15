@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ben Mator Coopération - Excellence, Stratégie & Partenariat</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#050b18',
+                        },
+                        gold: {
+                            300: '#fde68a',
+                            400: '#fbbf24',
+                            500: '#d97706',
+                            600: '#b45309',
+                            accent: '#c8a253',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Animations fluides au défilement */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: all 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.72);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-gold-accent selection:text-navy-950 overflow-x-hidden">
+
+    <!-- 1) Barre de navigation fixe -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-navy-950/95 backdrop-blur-md border-b border-slate-800/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo Ben Mator Coopération -->
+            <a href="#accueil" class="flex items-center space-x-3 group focus:outline-none">
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-gold-400 via-gold-accent to-gold-600 flex items-center justify-center text-navy-950 font-extrabold text-xl shadow-lg shadow-gold-accent/25 group-hover:scale-105 transition-transform">
+                    BM
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-lg font-extrabold text-white tracking-wider leading-none">BEN MATOR</span>
+                    <span class="text-[11px] text-gold-accent tracking-[0.22em] uppercase font-semibold mt-1">Coopération</span>
+                </div>
+            </a>
+
+            <!-- Navigation Desktop -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#accueil" class="text-sm font-medium text-slate-300 hover:text-gold-accent transition-colors">Accueil</a>
+                <a href="#apropos" class="text-sm font-medium text-slate-300 hover:text-gold-accent transition-colors">À propos</a>
+                <a href="#services" class="text-sm font-medium text-slate-300 hover:text-gold-accent transition-colors">Services</a>
+                <a href="#valeurs" class="text-sm font-medium text-slate-300 hover:text-gold-accent transition-colors">Valeurs</a>
+                <a href="#contact" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-gold-accent to-gold-500 hover:from-gold-400 hover:to-gold-accent text-navy-950 font-bold text-sm transition-all shadow-md shadow-gold-accent/25 hover:shadow-gold-accent/40">
+                    Nous contacter
+                </a>
+            </nav>
+
+            <!-- Bouton Menu Mobile -->
+            <button id="menu-btn" aria-label="Ouvrir le menu" class="md:hidden text-slate-200 hover:text-gold-accent focus:outline-none p-2.5 rounded-lg bg-slate-900 border border-slate-800">
+                <i id="menu-icon" class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Menu Mobile Déroulant -->
+        <div id="mobile-menu" class="hidden md:hidden bg-navy-950 border-b border-slate-800 px-4 pt-3 pb-6 space-y-2 shadow-2xl">
+            <a href="#accueil" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:text-gold-accent hover:bg-slate-900 transition-colors">Accueil</a>
+            <a href="#apropos" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:text-gold-accent hover:bg-slate-900 transition-colors">À propos</a>
+            <a href="#services" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:text-gold-accent hover:bg-slate-900 transition-colors">Domaines d'Activités</a>
+            <a href="#valeurs" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:text-gold-accent hover:bg-slate-900 transition-colors">Nos Valeurs</a>
+            <div class="pt-2">
+                <a href="#contact" class="mobile-link block text-center w-full px-5 py-3.5 rounded-xl bg-gradient-to-r from-gold-accent to-gold-500 text-navy-950 font-bold text-sm shadow-lg">
+                    Démarrer une collaboration
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2) Section Héro -->
+    <section id="accueil" class="relative pt-32 pb-20 md:pt-44 md:pb-32 bg-gradient-to-br from-navy-950 via-navy-900 to-slate-900 text-white overflow-hidden">
+        <!-- Décors lumineux d'arrière-plan -->
+        <div class="absolute top-20 left-1/4 w-96 h-96 bg-gold-accent/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 right-10 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <!-- Motif géométrique discret -->
+        <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(#c8a253 1px, transparent 1px); background-size: 28px 28px;"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Colonne Texte -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2.5 px-4 py-1.5 rounded-full bg-gold-accent/15 border border-gold-accent/30 text-gold-300 text-xs font-semibold tracking-wider uppercase">
+                        <i class="fa-solid fa-crown text-gold-accent"></i>
+                        <span>Partenaire Stratégique • Pointe-Noire & International</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15]">
+                        Bâtir des Synergies Durables avec <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-accent to-gold-500">Ben Mator Coopération</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        Nous accompagnons les entreprises, institutions et investisseurs dans le déploiement de projets ambitieux, le négoce international et la transformation stratégique au Congo et en Afrique Centrale.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-3">
+                        <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-gold-accent to-gold-500 hover:from-gold-400 hover:to-gold-accent text-navy-950 font-bold text-base transition-all shadow-lg shadow-gold-accent/25 flex items-center justify-center space-x-2.5">
+                            <span>Lancer un projet</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#services" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-white font-semibold text-base border border-slate-700 hover:border-gold-accent/50 transition-all flex items-center justify-center space-x-2">
+                            <span>Nos domaines d'expertise</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Colonne Visuelle Moderne -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md glass-card p-7 sm:p-8 rounded-3xl border border-slate-700/80 shadow-2xl space-y-6">
+                        <div class="flex items-center justify-between border-b border-slate-700/80 pb-4">
+                            <div class="flex items-center space-x-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-gold-accent animate-pulse"></span>
+                                <span class="text-xs uppercase font-bold text-gold-300 tracking-wider">Pôle d'Excellence</span>
+                            </div>
+                            <span class="text-xs text-slate-400 font-medium">Congo • CEMAC</span>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-4 p-4 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-gold-accent/40 transition-colors">
+                                <div class="w-11 h-11 rounded-xl bg-gold-accent/15 text-gold-accent flex items-center justify-center flex-shrink-0 text-lg">
+                                    <i class="fa-solid fa-handshake"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-white">Coopération & Négoce</h3>
+                                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">Structuration de partenariats commerciaux et facilitation d'affaires.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4 p-4 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-gold-accent/40 transition-colors">
+                                <div class="w-11 h-11 rounded-xl bg-gold-accent/15 text-gold-accent flex items-center justify-center flex-shrink-0 text-lg">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-white">Pilotage Stratégique</h3>
+                                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">Accompagnement opérationnel et ingénierie de projets à fort impact.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4 p-4 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-gold-accent/40 transition-colors">
+                                <div class="w-11 h-11 rounded-xl bg-gold-accent/15 text-gold-accent flex items-center justify-center flex-shrink-0 text-lg">
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-white">Fiabilité & Conformité</h3>
+                                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">Respect strict des standards internationaux et gouvernance rigoureuse.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-2 flex items-center justify-between text-xs text-slate-400 border-t border-slate-800">
+                            <span>Siège : Pointe-Noire</span>
+                            <span class="text-gold-accent font-semibold"><i class="fa-solid fa-circle-check mr-1"></i> Partenaire Certifié</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3) Barre de statistiques clés -->
+    <section class="bg-navy-900 border-y border-slate-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <div class="p-4 rounded-2xl bg-navy-950/50 border border-slate-800/80 reveal">
+                    <p class="text-3xl sm:text-4xl font-extrabold text-gold-accent">+10 Ans</p>
+                    <p class="text-xs sm:text-sm text-slate-300 uppercase tracking-wider font-medium mt-2">D'expertise cumulée</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-navy-950/50 border border-slate-800/80 reveal">
+                    <p class="text-3xl sm:text-4xl font-extrabold text-gold-accent">+120</p>
+                    <p class="text-xs sm:text-sm text-slate-300 uppercase tracking-wider font-medium mt-2">Projets accompagnés</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-navy-950/50 border border-slate-800/80 reveal">
+                    <p class="text-3xl sm:text-4xl font-extrabold text-gold-accent">98%</p>
+                    <p class="text-xs sm:text-sm text-slate-300 uppercase tracking-wider font-medium mt-2">Satisfaction client</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-navy-950/50 border border-slate-800/80 reveal">
+                    <p class="text-3xl sm:text-4xl font-extrabold text-gold-accent">+25</p>
+                    <p class="text-xs sm:text-sm text-slate-300 uppercase tracking-wider font-medium mt-2">Partenaires internationaux</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4) Section À propos -->
+    <section id="apropos" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Visuel architectural / Vision -->
+                <div class="lg:col-span-6 reveal">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200 bg-gradient-to-br from-navy-950 via-navy-900 to-slate-800 p-8 sm:p-12 text-white">
+                        <div class="absolute -right-10 -bottom-10 w-56 h-56 rounded-full bg-gold-accent/15 blur-2xl"></div>
+                        <div class="relative z-10 space-y-6">
+                            <div class="w-16 h-16 rounded-2xl bg-gold-accent/20 border border-gold-accent/40 flex items-center justify-center text-gold-accent text-2xl">
+                                <i class="fa-solid fa-compass"></i>
+                            </div>
+                            <h3 class="text-2xl sm:text-3xl font-bold leading-snug">
+                                Une passerelle stratégique entre ambitions locales et opportunités mondiales
+                            </h3>
+                            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                                Implantée au cœur du poumon économique de la République du Congo à Pointe-Noire, <strong>Ben Mator Coopération</strong> fédère les compétences, les capitaux et les savoir-faire pour accélérer la réussite de vos initiatives.
+                            </p>
+                            <div class="pt-4 border-t border-slate-700/80 grid grid-cols-2 gap-4">
+                                <div>
+                                    <span class="text-xs uppercase tracking-wider text-gold-accent font-bold">Notre Vision</span>
+                                    <p class="text-xs text-slate-300 mt-1">Devenir la référence de la coopération économique en Afrique Centrale.</p>
+                                </div>
+                                <div>
+                                    <span class="text-xs uppercase tracking-wider text-gold-accent font-bold">Notre Mission</span>
+                                    <p class="text-xs text-slate-300 mt-1">Créer de la valeur durable par le conseil, le négoce et l'innovation.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenu éditorial -->
+                <div class="lg:col-span-6 space-y-6 reveal">
+                    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-gold-accent/15 text-gold-600 text-xs font-bold tracking-wider uppercase">
+                        <i class="fa-solid fa-building"></i>
+                        <span>À Propos de Ben Mator Coopération</span>
+                    </div>
+
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-950 tracking-tight leading-tight">
+                        L'engagement d'un partenaire solide à chaque étape de votre croissance
+                    </h2>
+
+                    <p class="text-slate-600 text-base leading-relaxed">
+                        <strong>Ben Mator Coopération</strong> est née de la volonté d'offrir aux acteurs économiques un accompagnement de haut niveau, alliant connaissance approfondie du terrain et maîtrise des standards internationaux.
+                    </p>
+
+                    <p class="text-slate-600 text-base leading-relaxed">
+                        Qu'il s'agisse de structurer une opération commerciale, de piloter un projet d'infrastructure, de moderniser vos outils numériques ou de mobiliser des investissements, nos équipes s'engagent avec rigueur et transparence.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="flex items-start space-x-3.5 p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                            <div class="w-8 h-8 rounded-lg bg-navy-950 text-gold-accent flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="fa-solid fa-check text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy-950 text-sm">Ancrage Local Fort</h4>
+                                <p class="text-xs text-slate-500 mt-1">Maîtrise de l'écosystème économique et réglementaire congolais.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3.5 p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                            <div class="w-8 h-8 rounded-lg bg-navy-950 text-gold-accent flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="fa-solid fa-globe text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy-950 text-sm">Réseau International</h4>
+                                <p class="text-xs text-slate-500 mt-1">Connexions directes avec des fournisseurs et partenaires mondiaux.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5) Section Domaines d'Activités / Services (6 cartes) -->
+    <section id="services" class="py-24 bg-slate-100 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16 reveal">
+                <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-gold-accent/15 text-gold-600 text-xs font-bold tracking-wider uppercase">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span>Nos Domaines d'Activités</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-950 tracking-tight">
+                    Six pôles d'expertise au service de votre performance
+                </h2>
+                <p class="text-slate-600 text-base">
+                    Des solutions intégrées et sur mesure conçues pour répondre aux enjeux stratégiques et opérationnels de votre organisation.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Carte 1 : Conseil Stratégique -->
+                <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200 hover:shadow-xl hover:-translate-y-1 hover:border-gold-accent/60 transition-all duration-300 group flex flex-col justify-between reveal">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-navy-950 text-gold-accent flex items-center justify-center text-2xl mb-6 group-hover:bg-gold-accent group-hover:text-navy-950 transition-colors shadow-md">
+                            <i class="fa-solid fa-chess-knight"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy-950 mb-3">Conseil Stratégique</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Diagnostic organisationnel, études de marché, planification stratégique et accompagnement des dirigeants pour sécuriser chaque décision majeure.
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-slate-100 mt-6 flex items-center justify-between">
+                        <span class="text-xs font-bold text-gold-600 uppercase tracking-wider">Pôle 01</span>
+                        <a href="#contact" class="text-navy-950 hover:text-gold-600 font-semibold text-sm inline-flex items-center space-x-1.5 transition-colors">
+                            <span>Consulter</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Carte 2 : Commerce & Négoce -->
+                <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200 hover:shadow-xl hover:-translate-y-1 hover:border-gold-accent/60 transition-all duration-300 group flex flex-col justify-between reveal">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-navy-950 text-gold-accent flex items-center justify-center text-2xl mb-6 group-hover:bg-gold-accent group-hover:text-navy-950 transition-colors shadow-md">
+                            <i class="fa-solid fa-ship"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy-950 mb-3">Commerce & Négoce</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Approvisionnement stratégique, import-export, représentation commerciale et mise en relation fiable entre producteurs et acheteurs internationaux.
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-slate-100 mt-6 flex items-center justify-between">
+                        <span class="text-xs font-bold text-gold-600 uppercase tracking-wider">Pôle 02</span>
+                        <a href="#contact" class="text-navy-950 hover:text-gold-600 font-semibold text-sm inline-flex items-center space-x-1.5 transition-colors">
+                            <span>Consulter</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Carte 3 : Gestion de Projets -->
+                <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200 hover:shadow-xl hover:-translate-y-1 hover:border-gold-accent/60 transition-all duration-300 group flex flex-col justify-between reveal">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-navy-950 text-gold-accent flex items-center justify-center text-2xl mb-6 group-hover:bg-gold-accent group-hover:text-navy-950 transition-colors shadow-md">
+                            <i class="fa-solid fa-diagram-project"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy-950 mb-3">Gestion de Projets</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Maîtrise d'ouvrage déléguée, coordination des intervenants, suivi budgétaire et contrôle qualité rigoureux de l'initiation jusqu'à la livraison finale.
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-slate-100 mt-6 flex items-center justify-between">
+                        <span class="text-xs font-bold text-gold-600 uppercase tracking-wider">Pôle 03</span>
+                        <a href="#contact" class="text-navy-950 hover:text-gold-600 font-semibold text-sm inline-flex items-center space-x-1.5 transition-colors">
+                            <span>Consulter</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Carte 4 : Solutions Digitales -->
+                <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200 hover:shadow-xl hover:-translate-y-1 hover:border-gold-accent/60 transition-all duration-300 group flex flex-col justify-between reveal">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-navy-950 text-gold-accent flex items-center justify-center text-2xl mb-6 group-hover:bg-gold-accent group-hover:text-navy-950 transition-colors shadow-md">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy-950 mb-3">Solutions Digitales</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Transformation numérique, déploiement d'outils de gestion modernes, digitalisation des processus métiers et optimisation de votre présence en ligne.
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-slate-100 mt-6 flex items-center justify-between">
+                        <span class="text-xs font-bold text-gold-600 uppercase tracking-wider">Pôle 04</span>
+                        <a href="#contact" class="text-navy-950 hover:text-gold-600 font-semibold text-sm inline-flex items-center space-x-1.5 transition-colors">
+                            <span>Consulter</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Carte 5 : Formation & Développement -->
+                <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200 hover:shadow-xl hover:-translate-y-1 hover:border-gold-accent/60 transition-all duration-300 group flex flex-col justify-between reveal">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-navy-950 text-gold-accent flex items-center justify-center text-2xl mb-6 group-hover:bg-gold-accent group-hover:text-navy-950 transition-colors shadow-md">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy-950 mb-3">Formation & Développement</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Renforcement des capacités opérationnelles, séminaires exécutifs et programmes de montée en compétence adaptés aux exigences du marché actuel.
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-slate-100 mt-6 flex items-center justify-between">
+                        <span class="text-xs font-bold text-gold-600 uppercase tracking-wider">Pôle 05</span>
+                        <a href="#contact" class="text-navy-950 hover:text-gold-600 font-semibold text-sm inline-flex items-center space-x-1.5 transition-colors">
+                            <span>Consulter</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Carte 6 : Partenariats & Investissements -->
+                <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200 hover:shadow-xl hover:-translate-y-1 hover:border-gold-accent/60 transition-all duration-300 group flex flex-col justify-between reveal">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-navy-950 text-gold-accent flex items-center justify-center text-2xl mb-6 group-hover:bg-gold-accent group-hover:text-navy-950 transition-colors shadow-md">
+                            <i class="fa-solid fa-hand-holding-dollar"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy-950 mb-3">Partenariats & Investissements</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Structuration de coentreprises (joint-ventures), montage financier de projets porteurs et accompagnement des investisseurs étrangers au Congo.
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-slate-100 mt-6 flex items-center justify-between">
+                        <span class="text-xs font-bold text-gold-600 uppercase tracking-wider">Pôle 06</span>
+                        <a href="#contact" class="text-navy-950 hover:text-gold-600 font-semibold text-sm inline-flex items-center space-x-1.5 transition-colors">
+                            <span>Consulter</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6) Section Valeurs Fondamentales -->
+    <section id="valeurs" class="py-24 bg-navy-950 text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-gold-accent/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16 reveal">
+                <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-gold-accent/15 border border-gold-accent/30 text-gold-300 text-xs font-bold tracking-wider uppercase">
+                    <i class="fa-solid fa-gem text-gold-accent"></i>
+                    <span>Notre ADN</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+                    Les Valeurs Fondamentales de Ben Mator Coopération
+                </h2>
+                <p class="text-slate-400 text-base">
+                    Trois principes directeurs qui fondent la confiance durable de nos clients et partenaires institutionnels.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Valeur 1 : Intégrité -->
+                <div class="bg-slate-900/90 border border-slate-800 hover:border-gold-accent/50 p-8 rounded-3xl space-y-5 transition-all reveal">
+                    <div class="flex items-center justify-between">
+                        <div class="w-12 h-12 rounded-2xl bg-gold-accent/15 border border-gold-accent/30 flex items-center justify-center text-gold-accent text-xl">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                        </div>
+                        <span class="text-3xl font-black text-slate-800">01</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Intégrité</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        La transparence, l'éthique des affaires et le respect absolu de nos engagements constituent le socle de chaque relation que nous bâtissons.
+                    </p>
+                </div>
+
+                <!-- Valeur 2 : Excellence -->
+                <div class="bg-slate-900/90 border border-slate-800 hover:border-gold-accent/50 p-8 rounded-3xl space-y-5 transition-all reveal">
+                    <div class="flex items-center justify-between">
+                        <div class="w-12 h-12 rounded-2xl bg-gold-accent/15 border border-gold-accent/30 flex items-center justify-center text-gold-accent text-xl">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <span class="text-3xl font-black text-slate-800">02</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Excellence</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Nous appliquons une rigueur méthodologique sans compromis afin de délivrer des résultats mesurables et conformes aux plus hautes exigences.
+                    </p>
+                </div>
+
+                <!-- Valeur 3 : Agilité -->
+                <div class="bg-slate-900/90 border border-slate-800 hover:border-gold-accent/50 p-8 rounded-3xl space-y-5 transition-all reveal">
+                    <div class="flex items-center justify-between">
+                        <div class="w-12 h-12 rounded-2xl bg-gold-accent/15 border border-gold-accent/30 flex items-center justify-center text-gold-accent text-xl">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <span class="text-3xl font-black text-slate-800">03</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Agilité</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Face à des marchés en constante mutation, nous cultivons la réactivité et l'innovation pour transformer chaque défi en opportunité de croissance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7) Section Contact -->
+    <section id="contact" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- Coordonnées Pointe-Noire, République du Congo -->
+                <div class="lg:col-span-5 space-y-8 reveal">
+                    <div class="space-y-4">
+                        <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-gold-accent/15 text-gold-600 text-xs font-bold tracking-wider uppercase">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Contact & Partenariat</span>
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-950 tracking-tight">
+                            Échangeons sur vos projets d'avenir
+                        </h2>
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                            Notre direction générale et nos équipes de consultants vous accueillent à Pointe-Noire ou en visioconférence pour étudier vos besoins.
+                        </p>
+                    </div>
+
+                    <div class="space-y-5">
+                        <div class="flex items-start space-x-4 p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                            <div class="w-12 h-12 rounded-xl bg-navy-950 text-gold-accent flex items-center justify-center text-lg flex-shrink-0 shadow">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy-950 text-sm">Siège Social</h4>
+                                <p class="text-sm text-slate-600 mt-0.5">Centre-Ville, Avenue Charles de Gaulle</p>
+                                <p class="text-xs font-semibold text-gold-600 mt-0.5">Pointe-Noire, République du Congo</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4 p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                            <div class="w-12 h-12 rounded-xl bg-navy-950 text-gold-accent flex items-center justify-center text-lg flex-shrink-0 shadow">
+                                <i class="fa-solid fa-phone-volume"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy-950 text-sm">Téléphone & WhatsApp</h4>
+                                <p class="text-sm text-slate-600 mt-0.5">+242 06 800 00 00 / +242 05 500 00 00</p>
+                                <p class="text-xs text-slate-500 mt-0.5">Lundi - Vendredi : 08h00 – 17h30 (WAT)</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4 p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                            <div class="w-12 h-12 rounded-xl bg-navy-950 text-gold-accent flex items-center justify-center text-lg flex-shrink-0 shadow">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy-950 text-sm">Courrier Électronique</h4>
+                                <p class="text-sm text-slate-600 mt-0.5">contact@benmator-cooperation.cg</p>
+                                <p class="text-xs text-slate-500 mt-0.5">direction@benmator-cooperation.cg</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulaire Interactif -->
+                <div class="lg:col-span-7 reveal">
+                    <div class="bg-slate-50 border border-slate-200 p-8 sm:p-10 rounded-3xl shadow-lg relative overflow-hidden">
+                        <form id="contact-form" class="space-y-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label for="fullname" class="block text-xs font-bold text-navy-950 uppercase tracking-wider">Nom & Prénom *</label>
+                                    <input id="fullname" name="fullname" type="text" required placeholder="Ex: Jean-Marc Makaya" class="w-full px-4 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-gold-accent/40 focus:border-gold-accent transition-all">
+                                </div>
+                                <div class="space-y-2">
+                                    <label for="email" class="block text-xs font-bold text-navy-950 uppercase tracking-wider">Adresse Email *</label>
+                                    <input id="email" name="email" type="email" required placeholder="exemple@entreprise.com" class="w-full px-4 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-gold-accent/40 focus:border-gold-accent transition-all">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label for="phone" class="block text-xs font-bold text-navy-950 uppercase tracking-wider">Téléphone</label>
+                                    <input id="phone" name="phone" type="tel" placeholder="+242 06 XXX XX XX" class="w-full px-4 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-gold-accent/40 focus:border-gold-accent transition-all">
+                                </div>
+                                <div class="space-y-2">
+                                    <label for="service" class="block text-xs font-bold text-navy-950 uppercase tracking-wider">Domaine concerné</label>
+                                    <select id="service" name="service" class="w-full px-4 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-gold-accent/40 focus:border-gold-accent transition-all">
+                                        <option value="Conseil Stratégique">Conseil Stratégique</option>
+                                        <option value="Commerce & Négoce">Commerce & Négoce</option>
+                                        <option value="Gestion de Projets">Gestion de Projets</option>
+                                        <option value="Solutions Digitales">Solutions Digitales</option>
+                                        <option value="Formation & Développement">Formation & Développement</option>
+                                        <option value="Partenariats & Investissements">Partenariats & Investissements</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label for="message" class="block text-xs font-bold text-navy-950 uppercase tracking-wider">Détails de votre demande *</label>
+                                <textarea id="message" name="message" rows="4" required placeholder="Présentez brièvement votre projet ou vos objectifs de collaboration..." class="w-full px-4 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-gold-accent/40 focus:border-gold-accent transition-all"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-gold-accent to-gold-500 hover:from-gold-400 hover:to-gold-accent text-navy-950 font-bold text-sm transition-all shadow-lg shadow-gold-accent/25 flex items-center justify-center space-x-2">
+                                <span>Envoyer ma demande</span>
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </form>
+
+                        <!-- Confirmation intégrée dans la page (sans alert()) -->
+                        <div id="confirmation-panel" class="hidden absolute inset-0 bg-navy-950/95 backdrop-blur-md p-8 flex flex-col items-center justify-center text-center space-y-5 z-20">
+                            <div class="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-400 flex items-center justify-center text-3xl shadow-lg">
+                                <i class="fa-solid fa-circle-check"></i>
+                            </div>
+                            <h3 class="text-2xl font-extrabold text-white">Message transmis avec succès !</h3>
+                            <p id="confirmation-text" class="text-slate-300 text-sm max-w-md leading-relaxed">
+                                Merci. Votre demande a bien été enregistrée par l'équipe de <strong>Ben Mator Coopération</strong> à Pointe-Noire. Un conseiller vous répondra sous 24 heures ouvrées.
+                            </p>
+                            <button id="reset-form-btn" type="button" class="px-6 py-3 rounded-full bg-gold-accent hover:bg-gold-400 text-navy-950 font-bold text-sm transition-colors">
+                                Envoyer un nouveau message
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8) Pied de page complet -->
+    <footer class="bg-navy-950 text-slate-400 border-t border-slate-800 pt-16 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-slate-800/80">
+                <!-- Colonne Marque -->
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center text-navy-950 font-extrabold text-base shadow">
+                            BM
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-base font-extrabold text-white tracking-wider leading-none">BEN MATOR</span>
+                            <span class="text-[10px] text-gold-accent tracking-[0.2em] uppercase font-semibold mt-1">Coopération</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Société de conseil stratégique, de négoce international, de gestion de projets et d'investissement basée à Pointe-Noire, République du Congo.
+                    </p>
+                    <div class="flex space-x-3 pt-1">
+                        <a href="#contact" aria-label="LinkedIn" class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-gold-accent hover:border-gold-accent/40 transition-colors">
+                            <i class="fa-brands fa-linkedin-in text-sm"></i>
+                        </a>
+                        <a href="#contact" aria-label="Facebook" class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-gold-accent hover:border-gold-accent/40 transition-colors">
+                            <i class="fa-brands fa-facebook-f text-sm"></i>
+                        </a>
+                        <a href="#contact" aria-label="WhatsApp" class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-gold-accent hover:border-gold-accent/40 transition-colors">
+                            <i class="fa-brands fa-whatsapp text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Colonne Liens Rapides -->
+                <div class="space-y-4">
+                    <h4 class="text-white font-bold text-xs uppercase tracking-wider">Navigation</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="#accueil" class="hover:text-gold-accent transition-colors">Accueil</a></li>
+                        <li><a href="#apropos" class="hover:text-gold-accent transition-colors">À propos de la société</a></li>
+                        <li><a href="#services" class="hover:text-gold-accent transition-colors">Nos domaines d'activités</a></li>
+                        <li><a href="#valeurs" class="hover:text-gold-accent transition-colors">Valeurs fondamentales</a></li>
+                        <li><a href="#contact" class="hover:text-gold-accent transition-colors">Contact & Localisation</a></li>
+                    </ul>
+                </div>
+
+                <!-- Colonne Services -->
+                <div class="space-y-4">
+                    <h4 class="text-white font-bold text-xs uppercase tracking-wider">Nos Services</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="#services" class="hover:text-gold-accent transition-colors">Conseil Stratégique</a></li>
+                        <li><a href="#services" class="hover:text-gold-accent transition-colors">Commerce & Négoce</a></li>
+                        <li><a href="#services" class="hover:text-gold-accent transition-colors">Gestion de Projets</a></li>
+                        <li><a href="#services" class="hover:text-gold-accent transition-colors">Solutions Digitales</a></li>
+                        <li><a href="#services" class="hover:text-gold-accent transition-colors">Partenariats & Investissements</a></li>
+                    </ul>
+                </div>
+
+                <!-- Colonne Coordonnées -->
+                <div class="space-y-4">
+                    <h4 class="text-white font-bold text-xs uppercase tracking-wider">Coordonnées</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li class="flex items-start space-x-2.5">
+                            <i class="fa-solid fa-location-dot text-gold-accent mt-0.5"></i>
+                            <span>Avenue Charles de Gaulle, Centre-Ville, Pointe-Noire, République du Congo</span>
+                        </li>
+                        <li class="flex items-center space-x-2.5">
+                            <i class="fa-solid fa-phone text-gold-accent"></i>
+                            <span>+242 06 800 00 00</span>
+                        </li>
+                        <li class="flex items-center space-x-2.5">
+                            <i class="fa-solid fa-envelope text-gold-accent"></i>
+                            <span>contact@benmator-cooperation.cg</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+                <p>&copy; 2026 Ben Mator Coopération. Tous droits réservés.</p>
+                <p>Pointe-Noire • République du Congo</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts autonomes -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Gestion du menu mobile
+            const menuBtn = document.getElementById('menu-btn');
+            const menuIcon = document.getElementById('menu-icon');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    const isHidden = mobileMenu.classList.toggle('hidden');
+                    menuIcon.classList.toggle('fa-bars', isHidden);
+                    menuIcon.classList.toggle('fa-xmark', !isHidden);
+                });
+
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        menuIcon.classList.add('fa-bars');
+                        menuIcon.classList.remove('fa-xmark');
+                    });
+                });
+            }
+
+            // 2. Animations fluides au défilement (IntersectionObserver)
+            const revealElements = document.querySelectorAll('.reveal');
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('active');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12 });
+
+                revealElements.forEach(el => observer.observe(el));
+            } else {
+                revealElements.forEach(el => el.classList.add('active'));
+            }
+
+            // 3. Gestion interactive du formulaire de contact
+            const contactForm = document.getElementById('contact-form');
+            const confirmationPanel = document.getElementById('confirmation-panel');
+            const confirmationText = document.getElementById('confirmation-text');
+            const resetFormBtn = document.getElementById('reset-form-btn');
+
+            if (contactForm && confirmationPanel) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const nameInput = document.getElementById('fullname');
+                    const serviceInput = document.getElementById('service');
+                    const clientName = nameInput && nameInput.value.trim() ? nameInput.value.trim() : 'Cher partenaire';
+                    const selectedService = serviceInput ? serviceInput.value : '';
+
+                    confirmationText.innerHTML = `Merci <strong>${clientName}</strong>. Votre demande concernant le pôle <strong>${selectedService}</strong> a bien été transmise à l'équipe de <strong>Ben Mator Coopération</strong> (Pointe-Noire). Nous vous recontacterons très rapidement.`;
+                    confirmationPanel.classList.remove('hidden');
+                });
+            }
+
+            if (resetFormBtn && contactForm && confirmationPanel) {
+                resetFormBtn.addEventListener('click', () => {
+                    contactForm.reset();
+                    confirmationPanel.classList.add('hidden');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
